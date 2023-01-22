@@ -3,6 +3,22 @@ import { Button, Group } from "@mantine/core";
 import { Select, Image, Title } from "@mantine/core";
 import React from "react";
 
+function setSpacePressed(){
+  // Define a variable to store the state
+  var spacePressed = false;
+
+  // Add an event listener to the document to detect when the spacebar is pressed
+  document.addEventListener("keydown", function(event) {
+    // Check if the key pressed is the spacebar
+    if (event.code === "Space" || event.keyCode === 32) {
+      // Set the variable to true
+      spacePressed = true;
+    }
+  });
+  return spacePressed;
+}
+
+
 function Navbar() {
   return (
     <>
@@ -29,8 +45,15 @@ function Navbar() {
   );
 }
 const IndexPage = () => {
+  const pressed = setSpacePressed();
+      if (pressed) {
+    // add AI
+}
   return (
     <>
+    
+
+  
       <Navbar />
 
       <Group position="center">
@@ -62,12 +85,15 @@ const IndexPage = () => {
         </Group>
         <Group style={{ flex: 1 }}>
           <Button
+          id="my-button"
             variant="gradient"
             gradient={{ from: "#4B0082", to: "#00FFFF", deg: 35 }}
             onClick={() => (window.location.href = "/chat")}
           >
             Talk to me
           </Button>
+          
+          
         </Group>
       </Group>
     </>
