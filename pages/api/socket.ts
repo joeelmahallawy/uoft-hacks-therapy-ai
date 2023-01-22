@@ -1,4 +1,4 @@
-import { Server } from "Socket.IO";
+import { Server } from "socket.io";
 import recorder from "node-record-lpcm16";
 import speech from "@google-cloud/speech";
 import { conversationStarter, ENCODING, SAMPLE_RATE_HERTZ } from "../../utils";

@@ -27,7 +27,7 @@ export function Navbar() {
               size="lg"
               sx={{ background: "none", "&:hover": { background: "none" } }}
             >
-              Account Settings
+              Settings
             </Button>
           </a>
         </Center>
