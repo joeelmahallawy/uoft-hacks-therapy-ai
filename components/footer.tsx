@@ -157,16 +157,26 @@ export default function Footer({ data }: FooterLinksProps) {
           </a>
         </Title>
         <Text color="dimmed" size="sm">
-
-            
-        <List  style={{margin:"30px"}}>
-            <Title color={'white'} order={2}>Hotline centers:</Title>
-      <List.Item><b>Talk Suicide Canada</b>: Call 1-833-456-4566 or Text 45645</List.Item>
-      <List.Item><b>Assaulted Women's Helpline</b>: Toll-free: 1-866-863-0511</List.Item>
-      <List.Item><b>Talk4Healing (Helpline for Indigenous Women)</b>: Toll-free: 1-855-554-4325
-</List.Item>
-      <List.Item>To connect with a <b>mental health professional one-on-one</b>: Call 1-888-668-6810 or text WELLNESS to 686868 for youth, call 1-866-585-0445 or text WELLNESS to 741741 for adults</List.Item>
-    </List>
+          <List style={{ margin: "30px" }}>
+            <Title color={"white"} order={2}>
+              Hotline centers:
+            </Title>
+            <List.Item>
+              <b>Talk Suicide Canada</b>: Call 1-833-456-4566 or Text 45645
+            </List.Item>
+            <List.Item>
+              <b>Assaulted Women's Helpline</b>: Toll-free: 1-866-863-0511
+            </List.Item>
+            <List.Item>
+              <b>Talk4Healing (Helpline for Indigenous Women)</b>: Toll-free:
+              1-855-554-4325
+            </List.Item>
+            <List.Item>
+              To connect with a <b>mental health professional one-on-one</b>:
+              Call 1-888-668-6810 or text WELLNESS to 686868 for youth, call
+              1-866-585-0445 or text WELLNESS to 741741 for adults
+            </List.Item>
+          </List>
         </Text>
 
         <Group
