@@ -108,14 +108,6 @@ const handler = async (req, res) => {
     socket.on("pause-recording", () => {
       console.log(`we paused recording`);
       recording.pause();
-
-      // recognizeStream.pause();
-      // recording.stop();
-      // socket.emit("response", textFromClient);
-    });
-    socket.on("stop-recording", () => {
-      console.log(`we stopped the record`);
-      recording.stop();
     });
   });
 
