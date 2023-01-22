@@ -2,14 +2,18 @@ import { Box, Center, Flex, Text } from "@mantine/core";
 import { Button, Group } from "@mantine/core";
 import { Select, Image, Title } from "@mantine/core";
 import React, { useEffect } from "react";
+import logo from "../utils/HARMONY_AI.png";
 
 export function Navbar() {
   return (
     <Box sx={{ background: "black" }}>
       <Center sx={{ padding: 20, justifyContent: "space-between" }}>
-        <Box>
-          <img src="HARMONY_AI.png" width="80px" height="60px"/>
-        </Box>
+
+        <a href="/">
+          <Box>
+            <Image src={logo.src} width={175} />
+          </Box>
+        </a>
         <Center sx={{ gap: 30 }}>
           <a href="/chat">
             <Button

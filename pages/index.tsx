@@ -128,15 +128,17 @@ export default function HeroImageBackground() {
           </Container>
 
           <div className={classes.controls}>
-            <Button
-              onClick={()=>window.location.href='home'} 
-              className={classes.control}
-              variant="filled"
-              color="pink"
-              size="lg"
-            >
-              Get started now
-            </Button>
+
+            <a href="/home">
+              <Button
+                className={classes.control}
+                variant="filled"
+                color="pink"
+                size="lg"
+              >
+                Get started now
+              </Button>
+            </a>
             {/* <Button
             className={cx(classes.control, classes.secondaryControl)}
             size="lg"
