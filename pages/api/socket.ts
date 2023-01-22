@@ -113,6 +113,7 @@ const handler = async (req, res) => {
 
     // discnnect and remove all event listeners so we don't execute the event handlers multiple times
     socket.on("disconnect", function () {
+      console.log(`disconnected socket`);
       socket.removeAllListeners();
     });
   });
