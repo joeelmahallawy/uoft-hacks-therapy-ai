@@ -31,6 +31,7 @@
     "dayjs": "^1.11.7",
     "embla-carousel-react": "^7.0.7",
     "form-data": "^4.0.0",
+    "memfs": "^3.4.13",
     "next": "latest",
     "node-record-lpcm16": "^1.0.1",
     "openai": "^3.1.0",

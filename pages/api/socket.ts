@@ -62,7 +62,6 @@ const handler = async (req, res) => {
               .streamingRecognize({ ...request, singleUtterance: false })
               .on("error", console.error)
               .on("data", async (data) => {
-                //TODO: set context right here
                 textFromClient = data.results[0].alternatives[0].transcript;
 
                 let response;

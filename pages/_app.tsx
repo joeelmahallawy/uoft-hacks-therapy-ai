@@ -8,24 +8,7 @@ import {
 } from "@mantine/core";
 import { useColorScheme } from "@mantine/hooks";
 import { useState } from "react";
-import { ColorSchemeContext } from "../context/ColorScheme";
 
-function Apps() {
-  return <Button>My app button</Button>;
-}
-
-// Custom theme is applied to all components in App
-function Demo() {
-  return (
-    <MantineProvider
-      theme={{ fontFamily: "Open Sans" }}
-      withGlobalStyles
-      withNormalizeCSS
-    >
-      <Apps />
-    </MantineProvider>
-  );
-}
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
 
@@ -43,23 +26,22 @@ export default function App(props: AppProps) {
         />
       </Head>
 
-      <ColorSchemeContext.Provider>
-        <ColorSchemeProvider
-          colorScheme={colorScheme}
-          toggleColorScheme={toggleColorScheme}
+      <ColorSchemeProvider
+        colorScheme={colorScheme}
+        toggleColorScheme={toggleColorScheme}
+      >
+        <MantineProvider
+          withGlobalStyles
+          withNormalizeCSS
+          theme={{
+            colorScheme: "dark",
+            /** Put your mantine theme override here */
+            // colorScheme: "dark",
+          }}
         >
-          <MantineProvider
-            withGlobalStyles
-            withNormalizeCSS
-            theme={{
-              /** Put your mantine theme override here */
-              colorScheme: "dark",
-            }}
-          >
-            <Component {...pageProps} />
-          </MantineProvider>
-        </ColorSchemeProvider>
-      </ColorSchemeContext.Provider>
+          <Component {...pageProps} />
+        </MantineProvider>
+      </ColorSchemeProvider>
     </>
   );
 }
