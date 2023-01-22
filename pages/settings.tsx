@@ -1,20 +1,12 @@
 import { Text } from "@mantine/core";
 import { Button, Group,Select, Image, Title,TextInput, Loader,Switch, useMantineTheme } from "@mantine/core";
 import { IconSun, IconMoonStars } from '@tabler/icons';
+import { IconAt } from '@tabler/icons';
 
-function Demo() {
-  const theme = useMantineTheme();
-  return (
-    <Group position="center">
-      <Switch
-        size="md"
-        color={theme.colorScheme === 'dark' ? 'gray' : 'dark'}
-        onLabel={<IconSun size={16} stroke={2.5} color={theme.colors.yellow[4]} />}
-        offLabel={<IconMoonStars size={16} stroke={2.5} color={theme.colors.blue[6]} />}
-      />
-    </Group>
-  );
-}
+import { ActionIcon, useMantineColorScheme } from '@mantine/core';
+
+
+
 const Home = () => {
   return (
     <>
@@ -26,13 +18,15 @@ const Home = () => {
       >
         Main Page
       </Button>
-        <Demo />
-       <TextInput label="Your email" placeholder="Your email" rightSection={<Loader size="xs" />} />;
+   
+    <TextInput label="Name" placeholder="Name"  style={{marginLeft:"550px", width:"200px"}}/>
+    <TextInput label="email" placeholder="Email"   style={{marginLeft:"550px", width:"200px"}}/>
 
     <footer>
-        Call 
-    </footer>
+        <Text>FOR EMERGENCIES:</Text>
+        <Text>Call 1-833-456-4566 and Text 45645</Text>
+      </footer>
     </>
-  );
-};
+  )
+}
 export default Home;

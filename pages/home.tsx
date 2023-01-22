@@ -8,7 +8,7 @@ export function Navbar() {
     <Box sx={{ background: "black" }}>
       <Center sx={{ padding: 20, justifyContent: "space-between" }}>
         <Box>
-          <Title>(Placeholder image)</Title>
+          <img src="HARMONY_AI.png" width="80px" height="60px"/>
         </Box>
         <Center sx={{ gap: 30 }}>
           <a href="/chat">

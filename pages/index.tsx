@@ -129,6 +129,7 @@ export default function HeroImageBackground() {
 
           <div className={classes.controls}>
             <Button
+              onClick={()=>window.location.href='home'} 
               className={classes.control}
               variant="filled"
               color="pink"
@@ -145,6 +146,7 @@ export default function HeroImageBackground() {
           </div>
         </div>
       </BackgroundImage>
+      
     </Box>
   );
 }
