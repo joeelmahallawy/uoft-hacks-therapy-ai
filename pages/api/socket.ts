@@ -1,4 +1,4 @@
-import { Server } from "socket.io";
+import { Server, Socket } from "socket.io";
 import recorder from "node-record-lpcm16";
 import speech from "@google-cloud/speech";
 import { conversationStarter, ENCODING, SAMPLE_RATE_HERTZ } from "../../utils";
@@ -44,7 +44,7 @@ const handler = async (req, res) => {
   let textFromClient;
 
   // handle audio commands
-  io.on("connection", (socket) => {
+  io.once("connection", (socket: Socket) => {
     socket.on(
       "listen",
       ({
@@ -109,6 +109,11 @@ const handler = async (req, res) => {
       console.log(`we paused recording`);
       recording.pause();
       res.end();
+    });
+
+    // discnnect and remove all event listeners so we don't execute the event handlers multiple times
+    socket.on("disconnect", function () {
+      socket.removeAllListeners();
     });
   });
 
