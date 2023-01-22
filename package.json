@@ -9,6 +9,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/server": "^11.10.0",
+    "@google-cloud/speech": "^5.1.1",
     "@mantine/carousel": "^5.10.1",
     "@mantine/core": "^5.10.1",
     "@mantine/dates": "^5.10.1",
@@ -26,13 +27,22 @@
     "@tiptap/extension-link": "^2.0.0-beta.209",
     "@tiptap/react": "^2.0.0-beta.209",
     "@tiptap/starter-kit": "^2.0.0-beta.209",
+    "cohere-ai": "^5.0.2",
     "dayjs": "^1.11.7",
     "embla-carousel-react": "^7.0.7",
     "next": "latest",
+    "node-record-lpcm16": "^1.0.1",
+    "openai": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-speech": "^1.0.2",
-    "react-speech-recognition": "^3.10.0"
+    "react-speech-kit": "^3.0.1",
+    "react-speech-recognition": "^3.10.0",
+    "react-use": "^17.4.0",
+    "socket.io": "^4.5.4",
+    "socket.io-client": "^4.5.4",
+    "text-to-speech-js": "^1.1.10",
+    "use-speech18": "^1.0.6"
   },
   "devDependencies": {
     "@types/node": "^12.12.21",
