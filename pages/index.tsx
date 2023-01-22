@@ -19,9 +19,9 @@ function Demo() {
        <NavigationProgress />
   <Group position="center" style={{ display: 'flex', justifyContent: 'space-between' }}>
   <div style={{marginLeft: "500px"}}>
-  <Button variant="gradient" gradient={{ from: '#4B0082', to: '#00FFFF', deg: 35 }} style={{ marginRight: '10px' }}>Home</Button>
-  <Button variant="gradient" gradient={{ from: '#4B0082', to: '#00FFFF', deg: 35 }} style={{ marginRight: '10px' }}>Chat</Button>
-  <Button variant="gradient" gradient={{ from: '#4B0082', to: '#00FFFF', deg: 35 }}>Account Settings</Button>
+  <Button variant="gradient" gradient={{ from: '#4B0082', to: '#00FFFF', deg: 35 }} style={{ marginRight: '10px' }} onClick={() => window.location.href='/home'}>Home</Button>
+  <Button variant="gradient" gradient={{ from: '#4B0082', to: '#00FFFF', deg: 35 }} style={{ marginRight: '10px' }} onClick={() => window.location.href='/chat'}>Chat</Button>
+  <Button variant="gradient" gradient={{ from: '#4B0082', to: '#00FFFF', deg: 35 }} onClick={() => window.location.href='/settings'}>Account Settings</Button>
 </div>
 
     <div style ={{marginRight:"50px"}} >
@@ -70,7 +70,7 @@ const IndexPage = () => {
     <Image src="https://img.freepik.com/premium-photo/teddy-bears-with-bouquet-red-roses-black-background-selective-focus_309761-311.jpg?w=1480" alt="Alternate text" width = "500px" />
   </Group>
   <Group style={{flex: 1}}>
-    <Button variant="gradient" gradient={{ from: '#4B0082', to: '#00FFFF', deg: 35 }}>Speak Now</Button>
+    <Button variant="gradient" gradient={{ from: '#4B0082', to: '#00FFFF', deg: 35 }} onClick={() => window.location.href='/chat'}>Speak Now</Button>
   </Group>
 </Group>
           </></>

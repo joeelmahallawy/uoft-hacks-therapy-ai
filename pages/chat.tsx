@@ -4,7 +4,7 @@ import {
   Navbar,
   Footer,
   Aside,
-  Text,
+  Text,Button,
   MediaQuery,
   Burger,
   useMantineTheme,
@@ -24,23 +24,23 @@ export default function AppShellDemo() {
       asideOffsetBreakpoint="sm"
       navbar={
         <Navbar p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }}>
-          <Text>Application navbar</Text>
+      
         </Navbar>
       }
       aside={
         <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
           <Aside p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }}>
-            <Text>Application sidebar</Text>
+           
           </Aside>
         </MediaQuery>
       }
       footer={
         <Footer height={60} p="md">
-          Application footer
+ 
         </Footer>
       }
     >
-      <Text>Resize app to see responsive navbar in action</Text>
+       <Button variant="gradient" gradient={{ from: '#4B0082', to: '#00FFFF', deg: 35 }} onClick={() => window.history.back()}>Main Page</Button>
     </AppShell>
   );
 }
