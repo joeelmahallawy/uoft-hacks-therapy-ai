@@ -45,8 +45,10 @@ const HomePage = () => {
     });
   };
 
+
   return (
     <Box>
+
       <Navbar />
 
       <Flex
@@ -71,6 +73,7 @@ const HomePage = () => {
 
         {isRecording ? (
           <Button
+
             sx={{ width: "80%" }}
             onClick={() => {
               setIsRecording(false);
@@ -79,6 +82,7 @@ const HomePage = () => {
           >
             STOP
           </Button>
+
         ) : (
           <Button
             sx={{ width: "80%", margin: "0 auto 10px auto" }}
