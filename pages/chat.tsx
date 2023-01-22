@@ -1,9 +1,6 @@
 import io from "Socket.IO-client";
-
-import { Box, Button, Center, Flex, Text } from "@mantine/core";
+import { Box, Button, Center, Flex, Loader, Text } from "@mantine/core";
 import { useEffect, useState } from "react";
-
-import { useSpeechSynthesis, useSpeechRecognition } from "react-speech-kit";
 import { Navbar } from "./home";
 
 let socket;
@@ -12,10 +9,27 @@ const HomePage = () => {
   const [therapistResponse, setTherapistResponse] = useState("");
   const [conversationContext, setConversationContext] = useState("");
   const [isRecording, setIsRecording] = useState(false);
+  const [settings, setSettings] = useState<{
+    name: string;
+    reasonHere: string;
+  }>();
+  const [conversationMessages, setConversationMessages] = useState([
+    {
+      name: `Harmony`,
+      content: `Hello ${
+        typeof window !== "undefined" &&
+        JSON.parse(localStorage.getItem("settings")).name
+      }, what would you like to talk about today?`,
+    },
+  ]);
 
   useEffect(() => {
-    // @ts-expect-error
-    if (!localStorage.getItem("settings")) window.location = "/onboarding";
+    if (!localStorage.getItem("settings")) {
+      // @ts-expect-error
+      window.location = "/onboarding";
+      return;
+    }
+    setSettings(JSON.parse(localStorage.getItem("settings")));
     socketInitializer();
   }, [therapistResponse]);
 
@@ -42,13 +56,27 @@ const HomePage = () => {
       console.log(context);
       setConversationContext(context);
       setTherapistResponse(therapistResponse);
+      conversationMessages.push({
+        content: therapistResponse,
+        name: "Harmony",
+      });
+
+      setConversationMessages([...conversationMessages]);
+    });
+
+    socket.on("current-input", (speechInput) => {
+      conversationMessages.push({
+        content: speechInput,
+        name:
+          typeof window !== "undefined" &&
+          JSON.parse(localStorage.getItem("settings")).name,
+      });
+      setConversationMessages([...conversationMessages]);
     });
   };
 
-
-  return (
+  return settings ? (
     <Box>
-
       <Navbar />
 
       <Flex
@@ -63,34 +91,32 @@ const HomePage = () => {
           padding: 10,
         }}
       >
-        <ChatComponent
-          who={"Harmony"}
-          content={`Hello ${
-            typeof window !== "undefined" &&
-            JSON.parse(localStorage.getItem("settings")).name
-          }, what would you like to talk about today?`}
-        />
+        <Box>
+          {conversationMessages.map((msg) => (
+            <ChatComponent who={msg.name} content={msg.content} />
+          ))}
+        </Box>
 
         {isRecording ? (
           <Button
-
-            sx={{ width: "80%" }}
+            color="red"
+            sx={{ width: "100%", margin: "0 auto 10px auto" }}
             onClick={() => {
               setIsRecording(false);
               socket?.emit("pause-recording", { conversationContext });
             }}
           >
-            STOP
+            Stop
           </Button>
-
         ) : (
           <Button
-            sx={{ width: "80%", margin: "0 auto 10px auto" }}
+            color="violet"
+            sx={{ width: "100%", margin: "0 auto 10px auto" }}
             onClick={async () => {
               setIsRecording(true);
               socket?.emit("listen", {
                 conversationContext,
-                patientName: typeof window !== "undefined" && localStorage,
+                patientName: settings.name,
               });
             }}
           >
@@ -99,6 +125,10 @@ const HomePage = () => {
         )}
       </Flex>
     </Box>
+  ) : (
+    <Center sx={{ height: "100vh" }}>
+      <Loader size="xl" variant="dots" />;
+    </Center>
   );
 };
 export default HomePage;

@@ -1,4 +1,3 @@
-// const { Configuration, OpenAIApi } = require("openai");
 import { Configuration, OpenAIApi } from "openai";
 
 export const conversate = async (

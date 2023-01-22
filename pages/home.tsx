@@ -34,8 +34,10 @@ export function Navbar() {
 }
 const IndexPage = () => {
   useEffect(() => {
-    // @ts-expect-error
-    if (!localStorage.getItem("settings")) window.location = "/onboarding";
+    if (!localStorage.getItem("settings")) {
+      // @ts-expect-error
+      window.location = "/onboarding";
+    }
   }, []);
 
   return (
@@ -73,7 +75,6 @@ const IndexPage = () => {
               size="lg"
               variant="gradient"
               gradient={{ from: "#4B0082", to: "#00FFFF", deg: 35 }}
-              onClick={() => (window.location.href = "/chat")}
             >
               Talk to me
             </Button>

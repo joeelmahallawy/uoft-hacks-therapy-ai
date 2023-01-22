@@ -63,6 +63,7 @@ const handler = async (req, res) => {
               .on("error", console.error)
               .on("data", async (data) => {
                 textFromClient = data.results[0].alternatives[0].transcript;
+                socket.emit("current-input", textFromClient);
 
                 let response;
                 if (!conversationContext.length) {
