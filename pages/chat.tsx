@@ -2,6 +2,7 @@ import io from "Socket.IO-client";
 import { Box, Button, Center, Flex, Loader, Text } from "@mantine/core";
 import { useEffect, useState } from "react";
 import { Navbar } from "./home";
+import Footer from "../components/footer";
 
 let socket;
 const HomePage = () => {
@@ -83,7 +84,7 @@ const HomePage = () => {
       <Flex
         sx={{
           width: "75vw",
-          height: "70vh",
+          height: "65vh",
           background: "white",
           margin: "40px auto",
           borderRadius: 10,
@@ -131,12 +132,11 @@ const HomePage = () => {
           </Button>
         )}
       </Flex>
-    </Box><>
-        <footer>
-          <Text>FOR EMERGENCIES:</Text>
-          <Text>Call 1-833-456-4566 and Text 45645</Text>
-        </footer>
-      </></>
+    </Box>
+
+        <Footer data={[]}/>
+
+      </>
   ) : (
     <Center sx={{ height: "100vh" }}>
       <Loader size="xl" variant="dots" />;
