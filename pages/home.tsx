@@ -31,6 +31,7 @@ export function Navbar() {
               size="lg"
               sx={{ background: "none", "&:hover": { background: "none" } }}
             >
+
                Settings
             </Button>
           </a>
