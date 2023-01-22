@@ -3,16 +3,17 @@ import { Text } from '@mantine/core';
 import { Button, Group } from '@mantine/core';
 import { Select, Image, Title } from '@mantine/core';
 
+
 import {
-    NavigationProgress,
-    incrementNavigationProgress,
-    decrementNavigationProgress,
-    setNavigationProgress,
-    startNavigationProgress,
-    stopNavigationProgress,
-    resetNavigationProgress,
-    completeNavigationProgress,
-    } from '@mantine/nprogress';
+  NavigationProgress,
+  incrementNavigationProgress,
+  decrementNavigationProgress,
+  setNavigationProgress,
+  startNavigationProgress,
+  stopNavigationProgress,
+  resetNavigationProgress,
+  completeNavigationProgress,
+} from "@mantine/nprogress";
 function Demo() {
     return (
           <>
@@ -80,8 +81,5 @@ const IndexPage = () => {
         }
     
   export default IndexPage;
-  
-
-
-
+ 
 
