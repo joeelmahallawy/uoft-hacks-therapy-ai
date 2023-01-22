@@ -1,4 +1,4 @@
-import io from "Socket.IO-client";
+import io from "socket.io-client";
 import { Box, Button, Center, Flex, Loader, Text } from "@mantine/core";
 import { useEffect, useState } from "react";
 import { Navbar } from "./home";
@@ -78,70 +78,69 @@ const HomePage = () => {
   };
 
   return settings ? (
-    <><Box>
-      <Navbar />
+    <>
+      <Box>
+        <Navbar />
 
-      <Flex
-        sx={{
-          width: "75vw",
-          height: "65vh",
-          background: "white",
-          margin: "40px auto",
-          borderRadius: 10,
-          justifyContent: "space-between",
-          flexDirection: "column",
-          padding: 10,
-        }}
-      >
-        <Box>
-          {conversationMessages.map((msg) => (
-            <ChatComponent who={msg.name} content={msg.content} />
-          ))}
-        </Box>
+        <Flex
+          sx={{
+            width: "75vw",
+            height: "65vh",
+            background: "white",
+            margin: "40px auto",
+            borderRadius: 10,
+            justifyContent: "space-between",
+            flexDirection: "column",
+            padding: 10,
+          }}
+        >
+          <Box>
+            {conversationMessages.map((msg) => (
+              <ChatComponent who={msg.name} content={msg.content} />
+            ))}
+          </Box>
 
-        {isRecording ? (
-          <Button
-            color="red"
-            sx={{ width: "100%", margin: "0 auto 10px auto" }}
-            onClick={() => {
-              setIsRecording(false);
-              socket?.emit("pause-recording", { conversationContext });
-            } }
-          >
-            Stop
-          </Button>
-        ) : (
-          <Button
-            loading={isLoading}
-            color="violet"
-            sx={{
-              width: "100%",
-              margin: "0 auto 10px auto",
-              // position: "fixed",
-            }}
-            onClick={async () => {
-              setIsRecording(true);
-              setIsLoading(true);
-              socket?.emit("listen", {
-                conversationContext,
-                patientName: settings.name,
-              });
-            } }
-          >
-            Start
-          </Button>
-        )}
-      </Flex>
-    </Box>
+          {isRecording ? (
+            <Button
+              color="red"
+              sx={{ width: "100%", margin: "0 auto 10px auto" }}
+              onClick={() => {
+                setIsRecording(false);
+                socket?.emit("pause-recording", { conversationContext });
+              }}
+            >
+              Stop
+            </Button>
+          ) : (
+            <Button
+              loading={isLoading}
+              color="violet"
+              sx={{
+                width: "100%",
+                margin: "0 auto 10px auto",
+                // position: "fixed",
+              }}
+              onClick={async () => {
+                setIsRecording(true);
+                setIsLoading(true);
+                socket?.emit("listen", {
+                  conversationContext,
+                  patientName: settings.name,
+                });
+              }}
+            >
+              Start
+            </Button>
+          )}
+        </Flex>
+      </Box>
 
-        <Footer data={[]}/>
-
-      </>
+      <Footer data={[]} />
+    </>
   ) : (
     <Center sx={{ height: "100vh" }}>
       <Loader size="xl" variant="dots" />;
     </Center>
-    
   );
 };
 export default HomePage;
