@@ -2,12 +2,16 @@ import { Box, Center, Flex, Text } from "@mantine/core";
 import { Button, Group } from "@mantine/core";
 import { Select, Image, Title } from "@mantine/core";
 import React, { useEffect } from "react";
+import Footer from "../components/footer";
 import logo from "../utils/HARMONY_AI.png";
+
+
 
 export function Navbar() {
   return (
     <Box sx={{ background: "black" }}>
-      <Center sx={{ padding: 20, justifyContent: "space-between" }}>
+      <Center sx={{ padding: 10, justifyContent: "space-between" }}>
+
         <a href="/">
           <Box>
             <Image src={logo.src} width={175} />
@@ -27,7 +31,8 @@ export function Navbar() {
               size="lg"
               sx={{ background: "none", "&:hover": { background: "none" } }}
             >
-              Settings
+
+               Settings
             </Button>
           </a>
         </Center>
@@ -72,7 +77,7 @@ const IndexPage = () => {
             width="500px"
           />
         </Group>
-        <Group style={{ flex: 1 }} mt={20}>
+        <Group style={{ flex: 1 }} mt={10}>
           <a href="/chat">
             <Button
               size="lg"
@@ -84,6 +89,7 @@ const IndexPage = () => {
           </a>
         </Group>
       </Group>
+      <Footer data={[]}/>
     </>
   );
 };

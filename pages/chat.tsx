@@ -2,6 +2,7 @@ import io from "Socket.IO-client";
 import { Box, Button, Center, Flex, Loader, Text } from "@mantine/core";
 import { useEffect, useState } from "react";
 import { Navbar } from "./home";
+import Footer from "../components/footer";
 
 let socket;
 const HomePage = () => {
@@ -77,13 +78,13 @@ const HomePage = () => {
   };
 
   return settings ? (
-    <Box>
+    <><Box>
       <Navbar />
 
       <Flex
         sx={{
           width: "75vw",
-          height: "70vh",
+          height: "65vh",
           background: "white",
           margin: "40px auto",
           borderRadius: 10,
@@ -105,7 +106,7 @@ const HomePage = () => {
             onClick={() => {
               setIsRecording(false);
               socket?.emit("pause-recording", { conversationContext });
-            }}
+            } }
           >
             Stop
           </Button>
@@ -125,17 +126,22 @@ const HomePage = () => {
                 conversationContext,
                 patientName: settings.name,
               });
-            }}
+            } }
           >
             Start
           </Button>
         )}
       </Flex>
     </Box>
+
+        <Footer data={[]}/>
+
+      </>
   ) : (
     <Center sx={{ height: "100vh" }}>
       <Loader size="xl" variant="dots" />;
     </Center>
+    
   );
 };
 export default HomePage;

@@ -1,3 +1,4 @@
+
 import {
   Text,
   Button,
@@ -62,6 +63,7 @@ const SettingsPage = () => {
         })}
         mx="auto"
       >
+
         <Center>
           <Title color="white" order={2}>
             Account settings
