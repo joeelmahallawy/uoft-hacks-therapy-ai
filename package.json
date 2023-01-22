@@ -43,6 +43,7 @@
     "socket.io-client": "^4.5.4",
     "text-to-speech-js": "^1.1.10",
     "use-speech18": "^1.0.6"
+
   },
   "devDependencies": {
     "@types/node": "^12.12.21",
