@@ -8,6 +8,7 @@ export function Navbar() {
   return (
     <Box sx={{ background: "black" }}>
       <Center sx={{ padding: 20, justifyContent: "space-between" }}>
+
         <a href="/">
           <Box>
             <Image src={logo.src} width={175} />

@@ -128,6 +128,7 @@ export default function HeroImageBackground() {
           </Container>
 
           <div className={classes.controls}>
+
             <a href="/home">
               <Button
                 className={classes.control}
@@ -147,6 +148,7 @@ export default function HeroImageBackground() {
           </div>
         </div>
       </BackgroundImage>
+      
     </Box>
   );
 }

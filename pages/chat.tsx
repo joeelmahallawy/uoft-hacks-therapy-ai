@@ -77,7 +77,7 @@ const HomePage = () => {
   };
 
   return settings ? (
-    <Box>
+    <><Box>
       <Navbar />
 
       <Flex
@@ -105,7 +105,7 @@ const HomePage = () => {
             onClick={() => {
               setIsRecording(false);
               socket?.emit("pause-recording", { conversationContext });
-            }}
+            } }
           >
             Stop
           </Button>
@@ -125,17 +125,23 @@ const HomePage = () => {
                 conversationContext,
                 patientName: settings.name,
               });
-            }}
+            } }
           >
             Start
           </Button>
         )}
       </Flex>
-    </Box>
+    </Box><>
+        <footer>
+          <Text>FOR EMERGENCIES:</Text>
+          <Text>Call 1-833-456-4566 and Text 45645</Text>
+        </footer>
+      </></>
   ) : (
     <Center sx={{ height: "100vh" }}>
       <Loader size="xl" variant="dots" />;
     </Center>
+    
   );
 };
 export default HomePage;
