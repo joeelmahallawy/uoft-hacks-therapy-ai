@@ -95,7 +95,7 @@ const handler = async (req, res) => {
                   });
                 }
                 res.end();
-                socket.disconnect();
+                return socket.disconnect();
               })
           );
 
@@ -108,6 +108,7 @@ const handler = async (req, res) => {
     socket.on("pause-recording", () => {
       console.log(`we paused recording`);
       recording.pause();
+      res.end();
     });
   });
 

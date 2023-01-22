@@ -5,6 +5,7 @@ import { Navbar } from "./home";
 
 let socket;
 const HomePage = () => {
+  const [isLoading, setIsLoading] = useState(false);
   // const { speak } = useSpeechSynthesis();
   const [therapistResponse, setTherapistResponse] = useState("");
   const [conversationContext, setConversationContext] = useState("");
@@ -40,7 +41,7 @@ const HomePage = () => {
     speech.pitch = 0.8;
     speech.volume = 0.75;
 
-    speech.rate = 0.65;
+    speech.rate = 0.85;
     window.speechSynthesis.speak(speech);
   }, [therapistResponse]);
 
@@ -53,7 +54,7 @@ const HomePage = () => {
     });
 
     socket?.on("response", ({ therapistResponse, context }) => {
-      console.log(context);
+      setIsLoading(false);
       setConversationContext(context);
       setTherapistResponse(therapistResponse);
       conversationMessages.push({
@@ -110,10 +111,16 @@ const HomePage = () => {
           </Button>
         ) : (
           <Button
+            loading={isLoading}
             color="violet"
-            sx={{ width: "100%", margin: "0 auto 10px auto" }}
+            sx={{
+              width: "100%",
+              margin: "0 auto 10px auto",
+              // position: "fixed",
+            }}
             onClick={async () => {
               setIsRecording(true);
+              setIsLoading(true);
               socket?.emit("listen", {
                 conversationContext,
                 patientName: settings.name,
