@@ -10,6 +10,8 @@ import {
   useMantineTheme,
 } from '@mantine/core';
 
+
+
 export default function AppShellDemo() {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
