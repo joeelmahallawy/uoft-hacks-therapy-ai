@@ -38,7 +38,7 @@ const handler = async (req, res) => {
 
   // audio listener
   // ***RECORDINGS CAN ONLY LAST 5 MINUTES MAX (305 seconds)***
-  const recording = recorder.record({ recorder: "rec" });
+  const recording = recorder.record({ recorder: "arecord -l" });
 
   // speech-to-text
   let textFromClient;
